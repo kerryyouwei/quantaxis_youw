@@ -375,7 +375,11 @@ def QA_fetch_get_stock_day(code, start_date, end_date, if_fq='00',
             print('pip uninstall pytdx')
             print('pip install pytdx')
         else:
-            print(e)
+            original_exception = getattr(e, 'original_exception', None)
+            if original_exception is None:
+                print(e)
+            else:
+                print('{}: {}'.format(e, original_exception))
 
 
 @retry(stop_max_attempt_number=3, wait_random_min=50, wait_random_max=100)

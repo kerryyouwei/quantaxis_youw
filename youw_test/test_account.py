@@ -7,7 +7,11 @@ import QUANTAXIS as QA
 from QUANTAXIS.QIFI import QIFI_Account
 
 # 1. 准备数据
-df = QA.QA_fetch_get_stock_day('tdx', '000001', '2023-01-01', '2024-01-31')
+df = QA.QA_fetch_get_stock_day(
+    'baostock', '000001', '2023-01-01', '2024-01-31'
+)
+if df is None or df.empty:
+    raise RuntimeError("未能获取行情数据，请检查网络连接。")
 data = QA.QA_DataStruct_Stock_day(df.set_index(['date', 'code']))
 
 # 2. 计算指标
