@@ -1,9 +1,9 @@
 [account]
-uri = "mongodb://127.0.0.1:27017"
+uri = "mongodb://192.168.101.130:27017"
 db = "quantaxis"
 
 [hisdata]
-uri = "mongodb://127.0.0.1:27017"
+uri = "mongodb://192.168.101.130:27017"
 db = "quantaxis"
 
 [realtime]
